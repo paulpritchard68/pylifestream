@@ -9,13 +9,8 @@ import time
 entries = []
 
 def build_entries():
-    add_entries('https://blog.lightlyseared.online/feed')
-    add_entries('https://www.goodreads.com/user/updates_rss/1249544?key=ItfytAwDailQkgBP2rqjs8SkIPrnpZZ9YE0mZuRONTd7QcrL')
-    add_entries('https://github.com/ExpatPaul.atom')
-    add_entries('https://pdp68.newsblur.com/social/rss/100707/pdp68')
-    add_entries('https://letterboxd.com/pdp68/rss')
-    add_entries('https://lfm.xiffy.nl/expatpaul/loved')
-    add_entries('https://lsconsulting.be/feed')
+    for line in open('sources.txt'):
+        add_entries(line)
 
 def add_entries(link):
     d = feedparser.parse(link)
