@@ -91,7 +91,7 @@ def print_heading():
     <style type="text/css">
         <!--
         body {margin: 1%; color: black; background: white;}
-        div#headerimage {background: green url("https://lightlysearedhome.files.wordpress.com/2018/12/20080621191.jpg") center no-repeat; background-size: cover; height: 300px; position: relative;}
+        div#headerimage {background: green url("banner.jpg") center no-repeat; background-size: cover; height: 300px; position: relative;}
         .heading {text-align: center; color: white;} 
         h1.heading {font-style: italic; position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 50%; height: 30%; margin: auto; }
         div#content {text-align: justified; margin-left: 20%; margin-right: 20%; padding: 0 1.75em;} 
