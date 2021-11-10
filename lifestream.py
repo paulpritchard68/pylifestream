@@ -80,9 +80,8 @@ def print_heading():
     <head>
     <meta charset="utf-8"/>
     <title>The Lightly Seared Life Stream</title>
-    <link rel="alternate" type="application/rss+xml" title="Lightly Seared on the Reality Grill &raquo; Feed" href="https://blog.lightlyseared.online/feed/" />
-    <link rel="icon" href="https://lightlysearedhome.files.wordpress.com/2020/07/cropped-bixbarton.png?w=32" sizes="32x32" />
-    <link rel="icon" href="https://lightlysearedhome.files.wordpress.com/2020/07/cropped-bixbarton.png?w=192" sizes="192x192" />
+    <link rel="icon" href="icon.png?w=32" sizes="32x32" />
+    <link rel="icon" href="icon.png?w=192" sizes="192x192" />
     <style type="text/css">
         <!--
         body {margin: 1%; color: black; background: white;}
