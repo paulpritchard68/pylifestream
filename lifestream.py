@@ -76,13 +76,14 @@ def display_entries():
             break
 
 def print_heading():
-    heading = '''<html>
+    heading = '''<!DOCTYPE html>
+    <html>
     <head>
     <meta charset="utf-8"/>
     <title>The Lightly Seared Life Stream</title>
     <link rel="icon" href="icon.png?w=32" sizes="32x32" />
     <link rel="icon" href="icon.png?w=192" sizes="192x192" />
-    <style type="text/css">
+    <style>
         <!--
         body {margin: 1%; color: black; background: white;}
         div#headerimage {background: green url("banner.jpg") center no-repeat; background-size: cover; height: 300px; position: relative;}
@@ -90,10 +91,7 @@ def print_heading():
         h1.heading {font-style: italic; position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 50%; height: 30%; margin: auto; }
         div#content {text-align: justified; margin-left: 20%; margin-right: 20%; padding: 0 1.75em;} 
         div#post {margin-left: 5%;}
-        div#footer {text-align: center;} 
-        a:link {color: #990000;}
-        a:visited {color: #99099;}
-        a.heading {color: #white; }
+        a:hover {color: red; }
         -->
     </style>    
     </head>
