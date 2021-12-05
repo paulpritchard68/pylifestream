@@ -22,7 +22,7 @@ def add_entries(link):
     else:
         feed_image = ''
 
-    for x in range(0, 5):
+    for x in range(0, 10):
         try:
             e = d['items'][x]
         except:
