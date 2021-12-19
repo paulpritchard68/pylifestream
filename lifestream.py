@@ -28,6 +28,15 @@ def add_entries(link):
         except:
             return
 
+        # Thumbnail handling
+        try:
+            if 'url' in e.media_thumbnail[0]:
+                feed_post_image = e.media_thumbnail[0].get('url')
+            else:
+                feed_post_image = ''	
+        except:
+            feed_post_image = ''
+
         # site specific formatting fixes
         if link.find('newsblur') != -1:
             feed_summary = 'Shared from <a href="https://pdp68.newsblur.com/">NewsBlur</a>'
@@ -48,7 +57,10 @@ def add_entries(link):
         if link.find('goodreads') != -1:
             feed_image = ''
 
-        entries.append([e.published_parsed, feed_title, feed_image, feed_description, e.link, e.title, e.published, feed_summary])
+        if link.find('github') != -1:
+            feed_post_image = ''
+
+        entries.append([e.published_parsed, feed_title, feed_image, feed_description, e.link, e.title, e.published, feed_summary, feed_post_image])
 
 def display_entries():
     entries.sort(key = lambda row: row[0], reverse = True)
@@ -63,6 +75,10 @@ def display_entries():
         
         print('<div id=post>')
         print('<h3><a href=\'' + x[4] + '\'>' + x[5] + '</a></h3>')
+
+        if x[8] != '':
+            print('<a href=\'' + x[4] + '\'><img src="' + x[8] + '" height="200" /></a>')
+            print('<br />')
 
         if x[2] != '':
             print('<img src="' + x[2] + '" align="left" width="32" height="32" />')
