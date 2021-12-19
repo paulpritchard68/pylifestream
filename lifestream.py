@@ -74,14 +74,16 @@ def display_entries():
             print('<h2>' + newdate + '</h2>')
         
         print('<div id=post>')
-        print('<h3><a href=\'' + x[4] + '\'>' + x[5] + '</a></h3>')
+        print('<h3>')
+        if x[2] != '':
+            print('<img src="' + x[2] + '" align="left" width="32" height="32" />')
+        print('<a href=\'' + x[4] + '\'>' + x[5] + '</a>')
+        print('</h3>')
 
         if x[8] != '':
             print('<a href=\'' + x[4] + '\'><img src="' + x[8] + '" height="200" /></a>')
             print('<br />')
 
-        if x[2] != '':
-            print('<img src="' + x[2] + '" align="left" width="32" height="32" />')
 
         print('<p>', x[7], '</p>')
         print('<br />')
