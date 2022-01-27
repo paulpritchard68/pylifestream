@@ -52,7 +52,10 @@ def add_entries(link):
                 gFrom = gString.find('/>', gFrom)
                 feed_summary = gString[3 : gFrom] + ' width="50" height="75" align="right" ' + gString[gFrom : len(gString) - 4]
         else:
-            feed_summary = e.summary
+            try:
+                feed_summary = e.summary
+            except:
+                feed_summary = ''
 
         if link.find('goodreads') != -1:
             feed_image = ''
@@ -60,7 +63,28 @@ def add_entries(link):
         if link.find('github') != -1:
             feed_post_image = ''
 
-        entries.append([e.published_parsed, feed_title, feed_image, feed_description, e.link, e.title, e.published, feed_summary, feed_post_image])
+        try:
+            feed_published_parsed = e.published_parsed
+        except:
+            feed_published_parsed = ''
+
+        try:
+            feed_link = e.link
+        except:
+            feed_link = ''
+
+        try:
+            feed_title = e.title
+        except:
+            feed_title = ''
+
+        try:
+            feed_published = e.published
+        except:
+            feed_published = ''
+
+        if feed_link != '':
+            entries.append([feed_published_parsed, feed_title, feed_image, feed_description, feed_link, feed_title, feed_published, feed_summary, feed_post_image])
 
 def display_entries():
     entries.sort(key = lambda row: row[0], reverse = True)
