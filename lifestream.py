@@ -13,7 +13,11 @@ def build_entries():
         add_entries(line)
 
 def add_entries(link):
-    d = feedparser.parse(link)
+    try:
+        d = feedparser.parse(link)
+    except:
+        return
+
     feed_title = d.feed.get('title', '')
     feed_description = d.feed.get('description', '')
 
