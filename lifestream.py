@@ -26,7 +26,7 @@ def add_entries(link):
     else:
         feed_image = ''
 
-    for x in range(0, 10):
+    for x in range(0, 50):
         try:
             e = d['items'][x]
         except:
@@ -98,7 +98,10 @@ def display_entries():
         newdatetime = datetime.datetime.fromtimestamp(time.mktime(x[0]))
         newdate = newdatetime.strftime("%A %d. %B %Y")
         if newdate != olddate:
+            if count == 10:
+                break
             olddate = newdate
+            count += 1
             print('<h2>' + newdate + '</h2>')
         
         print('<div id=post>')
@@ -112,14 +115,9 @@ def display_entries():
             print('<a href=\'' + x[4] + '\'><img src="' + x[8] + '" height="200" /></a>')
             print('<br />')
 
-
         print('<p>', x[7], '</p>')
         print('<br />')
         print('</div>')
-
-        count += 1
-        if count == 20:
-            break
 
 def print_heading():
     heading = '''<!DOCTYPE html>
