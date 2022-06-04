@@ -41,6 +41,14 @@ def add_entries(link):
         except:
             feed_post_image = ''
 
+        # Or media imqge if it's available
+        if feed_post_image == '':
+            try:
+                if 'url' in e.media_content[0]:
+                    feed_post_image = e.media_content[0].get('url')
+            except:
+                feed_post_image = ''
+
         # site specific formatting fixes
         if link.find('newsblur') != -1:
             feed_summary = 'Shared from <a href="https://pdp68.newsblur.com/">NewsBlur</a>'
