@@ -32,6 +32,11 @@ def add_entries(link):
         except:
             return
 
+        # Skip unwanted links
+        if link.find('goodreads') != -1:
+            if 'liked' in e.title:
+                continue
+
         # Thumbnail handling
         try:
             if 'url' in e.media_thumbnail[0]:
