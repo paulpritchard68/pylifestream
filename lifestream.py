@@ -66,8 +66,8 @@ def add_entries(link):
                 gFrom = e.summary.find('</p> <p>')
                 gString = e.summary[ : gFrom] + ' ' + e.summary[gFrom + 8: ]
                 gFrom = gString.find('img src')
-                gFrom = gString.find('/>', gFrom)
-                feed_summary = gString[3 : gFrom] + ' width="50" height="75" align="right" ' + gString[gFrom : len(gString) - 4]
+                gFrom = gString.find('/>', gFrom) 
+                feed_summary = gString[3 : gFrom] + ' width="150" align="left" ' + gString[gFrom: len(gString) - 4] + '<br />'
         else:
             try:
                 feed_summary = e.summary
@@ -147,7 +147,7 @@ def print_heading():
         .heading {text-align: center; color: white;} 
         h1.heading {font-style: italic; position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 50%; height: 30%; margin: auto; }
         div#content {text-align: justified; margin-left: 20%; margin-right: 20%; padding: 0 1.75em;} 
-        div#post {margin-left: 5%;}
+        div#post {margin-left: 5%; clear: left;}
         a:hover {color: red; }
         -->
     </style>    
