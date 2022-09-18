@@ -67,7 +67,7 @@ def add_entries(link):
                 gString = e.summary[ : gFrom] + ' ' + e.summary[gFrom + 8: ]
                 gFrom = gString.find('img src')
                 gFrom = gString.find('/>', gFrom) 
-                feed_summary = gString[3 : gFrom] + ' width="150" align="left" ' + gString[gFrom: len(gString) - 4] + '<br />'
+                feed_summary = gString[3 : gFrom] + ' width="150" align="left" style="border: 5px solid white" ' + gString[gFrom: len(gString) - 4] + '<br />'
         else:
             try:
                 feed_summary = e.summary
