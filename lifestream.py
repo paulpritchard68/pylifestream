@@ -67,7 +67,7 @@ def add_entries(link):
                 gString = e.summary[ : gFrom] + ' ' + e.summary[gFrom + 8: ]
                 gFrom = gString.find('img src')
                 gFrom = gString.find('/>', gFrom) 
-                feed_summary = gString[3 : gFrom] + ' width="150" align="left" style="border: 5px solid white" ' + gString[gFrom: len(gString) - 4] + '<br />'
+                feed_summary = gString[3 : gFrom] + ' width="50" align="left" hspace="10" ' + gString[gFrom: len(gString) - 4] + '<br />'
         elif link.find('goodreads') != -1:
             feed_summary = e.summary.replace('img align="right"', 'img align="left"')
         else:
