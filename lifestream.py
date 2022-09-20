@@ -70,6 +70,10 @@ def add_entries(link):
                 feed_summary = gString[3 : gFrom] + ' width="50" align="left" hspace="10" ' + gString[gFrom: len(gString) - 4] + '<br />'
         elif link.find('goodreads') != -1:
             feed_summary = e.summary.replace('img align="right"', 'img align="left"')
+        elif link.find('untappd') != -1:
+            feed_summary = e.summary.replace('width="200"', 'width="100"')
+            feed_summary = feed_summary.replace('height="200"', 'height="100"')
+            feed_summary = feed_summary.replace('img', 'img hspace="10"')
         else:
             try:
                 feed_summary = e.summary
