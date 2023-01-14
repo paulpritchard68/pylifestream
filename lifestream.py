@@ -96,10 +96,13 @@ def add_entries(link):
         except:
             feed_link = ''
 
-        try:
-            feed_title = e.title
-        except:
-            feed_title = ''
+        if link.find('social.lightlyseared.online') != -1:
+            feed_title = 'Status: ' + str(time.strftime("%H:%M:%S", e.published_parsed))
+        else:    
+            try:
+                feed_title = e.title
+            except:
+                feed_title = ''
 
         try:
             feed_published = e.published
