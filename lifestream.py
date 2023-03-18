@@ -56,7 +56,7 @@ def add_entries(link):
 
         # site specific formatting fixes
         if link.find('newsblur') != -1:
-            feed_summary = 'Shared from <a href="https://pdp68.newsblur.com/">NewsBlur</a>'
+            feed_summary = 'Shared from <a href="https://paulpritchard.newsblur.com/">NewsBlur</a>'
         elif link.find('xiffy') != -1:
             feed_summary = 'Loved on <a href="https://www.last.fm/user/expatpaul">Last.fm</a>'
         elif link.find('letterboxd') != -1:
