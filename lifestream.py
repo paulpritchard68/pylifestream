@@ -97,7 +97,7 @@ def add_entries(link):
             feed_link = ''
 
         if link.find('social.lightlyseared.online') != -1:
-            feed_title = 'Status: ' + str(time.strftime("%H:%M:%S", e.published_parsed))
+            feed_title = ''
         else:    
             try:
                 feed_title = e.title
