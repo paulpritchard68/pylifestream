@@ -109,7 +109,7 @@ def add_entries(link):
         except:
             feed_published = ''
 
-        if feed_link != '':
+        if feed_link != '' and feed_summary != '':
             entries.append([feed_published_parsed, feed_title, feed_image, feed_description, feed_link, feed_title, feed_published, feed_summary, feed_post_image])
 
 def display_entries():
