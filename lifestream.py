@@ -5,12 +5,18 @@ import feedparser
 from dateutil.parser import parse
 import datetime
 import time
+import configparser
 
 entries = []
 
 def build_entries():
-    for line in open('sources.txt'):
-        add_entries(line)
+    config = configparser.ConfigParser()
+    config.read('sources.ini')
+
+    for section in config.sections():
+        Section_Name = section
+        Section_RSS = config.get(section, 'rss')
+        add_entries(Section_RSS)
 
 def add_entries(link):
     try:
