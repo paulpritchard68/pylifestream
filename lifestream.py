@@ -15,10 +15,10 @@ def build_entries():
 
     for section in config.sections():
         Section_Name = section
-        Section_RSS = config.get(section, 'rss')
+        Section_RSS = config.get(section, 'RSS')
 
-        if config.has_option(section, 'summary'):
-            Section_Summary = config.get(section, 'summary')
+        if config.has_option(section, 'Summary'):
+            Section_Summary = config.get(section, 'Summary')
         else:
             Section_Summary = ''
 
