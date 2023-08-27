@@ -16,14 +16,20 @@ def build_entries():
     for section in config.sections():
         Section_Name = section
         Section_RSS = config.get(section, 'rss')
+
         if config.has_option(section, 'summary'):
             Section_Summary = config.get(section, 'summary')
         else:
             Section_Summary = ''
 
-        add_entries(Section_RSS, Section_Summary)
+        if config.has_option(section, 'HidePostTitle'):
+            Section_HidePostTitle = config.getboolean(section, 'HidePostTitle')
+        else:
+            Section_HidePostTitle = False 
 
-def add_entries(link, Section_Summary):
+        add_entries(Section_RSS, Section_Summary, Section_HidePostTitle)
+
+def add_entries(link, Section_Summary, Section_HidePostTitle):
     try:
         d = feedparser.parse(link)
     except:
@@ -109,7 +115,7 @@ def add_entries(link, Section_Summary):
         except:
             feed_link = ''
 
-        if link.find('social.lightlyseared.online') != -1:
+        if Section_HidePostTitle:
             feed_title = ''
         else:    
             try:
