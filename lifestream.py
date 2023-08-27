@@ -16,9 +16,14 @@ def build_entries():
     for section in config.sections():
         Section_Name = section
         Section_RSS = config.get(section, 'rss')
-        add_entries(Section_RSS)
+        if config.has_option(section, 'summary'):
+            Section_Summary = config.get(section, 'summary')
+        else:
+            Section_Summary = ''
 
-def add_entries(link):
+        add_entries(Section_RSS, Section_Summary)
+
+def add_entries(link, Section_Summary):
     try:
         d = feedparser.parse(link)
     except:
@@ -61,10 +66,8 @@ def add_entries(link):
                 feed_post_image = ''
 
         # site specific formatting fixes
-        if link.find('newsblur') != -1:
-            feed_summary = 'Shared from <a href="https://paulpritchard.newsblur.com/">NewsBlur</a>'
-        elif link.find('xiffy') != -1:
-            feed_summary = 'Loved on <a href="https://www.last.fm/user/expatpaul">Last.fm</a>'
+        if Section_Summary != '':
+            feed_summary = Section_Summary
         elif link.find('letterboxd') != -1:
             if e.summary.find('<img') == -1:
                 feed_summary = e.summary
