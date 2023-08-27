@@ -52,7 +52,7 @@ def add_entries(link):
         except:
             feed_post_image = ''
 
-        # Or media imqge if it's available
+        # Or media image if it's available
         if feed_post_image == '':
             try:
                 if 'url' in e.media_content[0]:
