@@ -14,20 +14,21 @@ def build_entries():
     config.read('sources.ini')
 
     for section in config.sections():
-        Section_Name = section
-        Section_RSS = config.get(section, 'RSS')
+        if section.strip()[:1] != '#':
+            Section_Name = section
+            Section_RSS = config.get(section, 'RSS')
 
-        if config.has_option(section, 'Summary'):
-            Section_Summary = config.get(section, 'Summary')
-        else:
-            Section_Summary = ''
+            if config.has_option(section, 'Summary'):
+                Section_Summary = config.get(section, 'Summary')
+            else:
+                Section_Summary = ''
 
-        if config.has_option(section, 'HidePostTitle'):
-            Section_HidePostTitle = config.getboolean(section, 'HidePostTitle')
-        else:
-            Section_HidePostTitle = False 
+            if config.has_option(section, 'HidePostTitle'):
+                Section_HidePostTitle = config.getboolean(section, 'HidePostTitle')
+            else:
+                Section_HidePostTitle = False
 
-        add_entries(Section_RSS, Section_Summary, Section_HidePostTitle)
+            add_entries(Section_RSS, Section_Summary, Section_HidePostTitle)
 
 def add_entries(link, Section_Summary, Section_HidePostTitle):
     try:
@@ -38,7 +39,7 @@ def add_entries(link, Section_Summary, Section_HidePostTitle):
     feed_title = d.feed.get('title', '')
     feed_description = d.feed.get('description', '')
 
-    if 'image' in d.feed: 
+    if 'image' in d.feed:
         feed_image = d.feed.image.get('href', '')
     else:
         feed_image = ''
@@ -59,7 +60,7 @@ def add_entries(link, Section_Summary, Section_HidePostTitle):
             if 'url' in e.media_thumbnail[0]:
                 feed_post_image = e.media_thumbnail[0].get('url')
             else:
-                feed_post_image = ''	
+                feed_post_image = ''
         except:
             feed_post_image = ''
 
@@ -81,7 +82,7 @@ def add_entries(link, Section_Summary, Section_HidePostTitle):
                 gFrom = e.summary.find('</p> <p>')
                 gString = e.summary[ : gFrom] + ' ' + e.summary[gFrom + 8: ]
                 gFrom = gString.find('img src')
-                gFrom = gString.find('/>', gFrom) 
+                gFrom = gString.find('/>', gFrom)
                 feed_summary = gString[3 : gFrom] + ' width="50" align="left" hspace="10" ' + gString[gFrom: len(gString) - 4] + '<br />'
         elif link.find('goodreads') != -1:
             try:
@@ -117,7 +118,7 @@ def add_entries(link, Section_Summary, Section_HidePostTitle):
 
         if Section_HidePostTitle:
             feed_title = ''
-        else:    
+        else:
             try:
                 feed_title = e.title
             except:
@@ -144,7 +145,7 @@ def display_entries():
             olddate = newdate
             count += 1
             print('<h2>' + newdate + '</h2>')
-        
+
         print('<div id=post>')
         print('<h3>')
         if x[2] != '':
@@ -172,19 +173,19 @@ def print_heading():
         <!--
         body {margin: 1%; color: black; background: white;}
         div#headerimage {background: green url("banner.jpg") center no-repeat; background-size: cover; height: 300px; position: relative;}
-        .heading {text-align: center; color: white;} 
+        .heading {text-align: center; color: white;}
         h1.heading {font-style: italic; position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 50%; height: 30%; margin: auto; }
-        div#content {text-align: justified; margin-left: 20%; margin-right: 20%; padding: 0 1.75em;} 
+        div#content {text-align: justified; margin-left: 20%; margin-right: 20%; padding: 0 1.75em;}
         div#post {margin-left: 5%; clear: left;}
         a:hover {color: red; }
         -->
-    </style>    
+    </style>
     </head>
     <body>'''
     print(heading)
 
-    banner = '''<div id=headerimage><h1 class=heading>Lightly Streamed on the Reality Grill</h1></div>'''  
-    print(banner)            
+    banner = '''<div id=headerimage><h1 class=heading>Lightly Streamed on the Reality Grill</h1></div>'''
+    print(banner)
 
     print('''<div id=content>''')
 
