@@ -1,0 +1,16 @@
+# This is an example sources.ini file
+# It should be reasonably self-explanatory
+
+# A blog feed
+[Lightly Seared]
+RSS = https://blog.lightlyseared.online/feed
+
+# A blog feed with an overridden summary
+[Lightly Seared]
+RSS = https://blog.lightlyseared.online/feed
+summary = New post on <a href="https://blog.lightlyseared.online/">Lightly Seared on the Reality Grill</a>.
+
+# A social media feed with the post titles hidden
+[Mastodon]
+RSS = https://social.lightlyseared.online/@Paul.rss
+HidePostTitle = yes
