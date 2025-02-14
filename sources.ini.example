@@ -11,6 +11,6 @@ RSS = https://blog.lightlyseared.online/feed
 summary = New post on <a href="https://blog.lightlyseared.online/">Lightly Seared on the Reality Grill</a>.
 
 # A social media feed with the post titles hidden
-[Mastodon]
+[Blog title]
 RSS = https://social.lightlyseared.online/@Paul.rss
 HidePostTitle = yes
